@@ -447,7 +447,19 @@ export default function App() {
   const [generatedPrompt, setGeneratedPrompt] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [apiKeyStatus, setApiKeyStatus] = useState<'checking' | 'found' | 'missing'>('checking');
   const resultRef = useRef<HTMLDivElement>(null);
+
+  // Verifica a chave ao carregar a página
+  useState(() => {
+    const key = (import.meta.env as any)?.VITE_GEMINI_API_KEY || 
+                (typeof process !== 'undefined' ? process.env?.GEMINI_API_KEY : '');
+    if (key && key !== 'undefined' && key !== '') {
+      setApiKeyStatus('found');
+    } else {
+      setApiKeyStatus('missing');
+    }
+  });
 
   const toggleSelection = (category: keyof typeof selections, value: string) => {
     setSelections(prev => ({
@@ -464,13 +476,11 @@ export default function App() {
     setGeneratedPrompt('');
     
     try {
-      // Diagnóstico da Chave API
       const apiKey = (import.meta.env as any)?.VITE_GEMINI_API_KEY || 
-                    (typeof process !== 'undefined' ? process.env?.GEMINI_API_KEY : '') ||
-                    (window as any)?.process?.env?.GEMINI_API_KEY;
+                    (typeof process !== 'undefined' ? process.env?.GEMINI_API_KEY : '');
       
       if (!apiKey || apiKey === 'undefined' || apiKey === '') {
-        setGeneratedPrompt('ERRO DE CONFIGURAÇÃO: A chave "VITE_GEMINI_API_KEY" não foi encontrada nas configurações da Vercel. Por favor, verifique o Passo 2 abaixo.');
+        setGeneratedPrompt('ERRO: Chave API não encontrada. Vá em Settings > Environment Variables na Vercel e adicione VITE_GEMINI_API_KEY.');
         setIsLoading(false);
         return;
       }
@@ -490,7 +500,7 @@ export default function App() {
       `;
       
       const response = await ai.models.generateContent({
-        model: "gemini-3.1-pro-preview",
+        model: "gemini-3-flash-preview",
         contents: promptWithContext,
         config: {
           systemInstruction: SYSTEM_INSTRUCTION,
@@ -529,6 +539,24 @@ export default function App() {
       </div>
 
       <main className="relative z-10 max-w-4xl mx-auto px-6 py-12 md:py-24">
+        {/* API Status Indicator */}
+        <div className="mb-8 flex justify-end">
+          <div className={`flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-mono uppercase tracking-widest ${
+            apiKeyStatus === 'found' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-500' : 
+            apiKeyStatus === 'missing' ? 'bg-red-500/10 border-red-500/20 text-red-500' : 
+            'bg-white/5 border-white/10 text-white/40'
+          }`}>
+            <div className={`w-1.5 h-1.5 rounded-full ${
+              apiKeyStatus === 'found' ? 'bg-emerald-500 animate-pulse' : 
+              apiKeyStatus === 'missing' ? 'bg-red-500' : 
+              'bg-white/20'
+            }`} />
+            {apiKeyStatus === 'found' ? 'AI Signal: Active' : 
+             apiKeyStatus === 'missing' ? 'AI Signal: Offline' : 
+             'AI Signal: Checking...'}
+          </div>
+        </div>
+
         {/* Header */}
         <header className="mb-16 space-y-4">
           <motion.div 
