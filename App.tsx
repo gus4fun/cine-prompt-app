@@ -464,11 +464,11 @@ export default function App() {
     setGeneratedPrompt('');
     
     try {
-      // Get the API key from either process.env (AI Studio) or import.meta.env (Vite/External)
-      const apiKey = process.env.GEMINI_API_KEY || (import.meta.env as any).VITE_GEMINI_API_KEY;
+      // Get the API key from Vite environment variables (Vercel/External) or process.env (AI Studio)
+      const apiKey = (import.meta.env as any).VITE_GEMINI_API_KEY || (typeof process !== 'undefined' ? process.env.GEMINI_API_KEY : '');
       
       if (!apiKey) {
-        throw new Error('Gemini API Key not found. Please set GEMINI_API_KEY or VITE_GEMINI_API_KEY.');
+        throw new Error('Gemini API Key not found. Please set VITE_GEMINI_API_KEY in Vercel settings.');
       }
 
       const ai = new GoogleGenAI({ apiKey });
