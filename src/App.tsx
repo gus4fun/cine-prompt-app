@@ -313,12 +313,12 @@ const MovementAnimation = ({ type }: { type: string }) => {
 
 const CompositionPreview = ({ type }: { type: string }) => {
   const images: Record<string, string> = {
-    'Rule of Thirds composition': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_28.png',
-    'Perfectly Symmetrical composition': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_29.png',
-    'Strong Leading Lines': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_30.png',
-    'Dutch Angle/Canted Frame': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_31.png',
-    'Golden Ratio composition': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_32.png',
-    'Dead-center framing': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_33.png',
+    'Rule of Thirds composition': '/images/comp_1.png',
+    'Perfectly Symmetrical composition': '/images/comp_2.png',
+    'Strong Leading Lines': '/images/comp_3.png',
+    'Dutch Angle/Canted Frame': '/images/comp_4.png',
+    'Golden Ratio composition': '/images/comp_5.png',
+    'Dead-center framing': '/images/comp_6.png',
   };
 
   const imageUrl = images[type];
@@ -373,15 +373,15 @@ const CompositionPreview = ({ type }: { type: string }) => {
 
 const CameraPreview = ({ type }: { type: string }) => {
   const images: Record<string, string> = {
-    'Low Angle': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_18.png',
-    'High Angle': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_19.png',
-    'Eye-Level Shot': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_20.png',
-    'Bird\'s Eye View': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_21.png',
-    'Close-up Shot': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_22.png',
-    'Medium Shot': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_23.png',
-    'Wide Shot': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_24.png',
-    'Over-the-shoulder Shot': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_25.png',
-    'Aerial Drone Shot': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_26.png',
+    'Low Angle': '/images/cam_1.png',
+    'High Angle': '/images/cam_2.png',
+    'Eye-Level Shot': '/images/cam_3.png',
+    'Bird\'s Eye View': '/images/cam_4.png',
+    'Close-up Shot': '/images/cam_5.png',
+    'Medium Shot': '/images/cam_6.png',
+    'Wide Shot': '/images/cam_7.png',
+    'Over-the-shoulder Shot': '/images/cam_8.png',
+    'Aerial Drone Shot': '/images/cam_9.png',
   };
 
   const imageUrl = images[type];
@@ -402,11 +402,11 @@ const CameraPreview = ({ type }: { type: string }) => {
 
 const LightingPreview = ({ type }: { type: string }) => {
   const images: Record<string, string> = {
-    'Golden Hour (Aconchego e Realidade, Dia a dia e Vlogs)': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_34.png',
-    'Soft Studio Lighting (Clareza e Confiança, Informação e Tutoriais)': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_35.png',
-    'High-contrast Chiaroscuro (Seriedade e Elegância, Narrativas e Luxo)': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_36.png',
-    'Neon Practical Lights (Energia e Inovação, Entretenimento e Tech)': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_37.png',
-    'Volumetric God Rays (Inspiração e Épico, Motivacional)': 'https://storage.googleapis.com/test-content-bucket-v1/ais-dev-llimdbhvhzlt76iqkzborh-387112234975.us-east1.run.app/user_upload_38.png',
+    'Golden Hour (Aconchego e Realidade, Dia a dia e Vlogs)': '/images/light_1.png',
+    'Soft Studio Lighting (Clareza e Confiança, Informação e Tutoriais)': '/images/light_2.png',
+    'High-contrast Chiaroscuro (Seriedade e Elegância, Narrativas e Luxo)': '/images/light_3.png',
+    'Neon Practical Lights (Energia e Inovação, Entretenimento e Tech)': '/images/light_4.png',
+    'Volumetric God Rays (Inspiração e Épico, Motivacional)': '/images/light_5.png',
   };
 
   const imageUrl = images[type];
@@ -464,11 +464,15 @@ export default function App() {
     setGeneratedPrompt('');
     
     try {
-      // Get the API key from either process.env (AI Studio) or import.meta.env (Vite/External)
-      const apiKey = process.env.GEMINI_API_KEY || (import.meta.env as any).VITE_GEMINI_API_KEY;
+      // Diagnóstico da Chave API
+      const apiKey = (import.meta.env as any)?.VITE_GEMINI_API_KEY || 
+                    (typeof process !== 'undefined' ? process.env?.GEMINI_API_KEY : '') ||
+                    (window as any)?.process?.env?.GEMINI_API_KEY;
       
-      if (!apiKey) {
-        throw new Error('Gemini API Key not found. Please set GEMINI_API_KEY or VITE_GEMINI_API_KEY.');
+      if (!apiKey || apiKey === 'undefined' || apiKey === '') {
+        setGeneratedPrompt('ERRO DE CONFIGURAÇÃO: A chave "VITE_GEMINI_API_KEY" não foi encontrada nas configurações da Vercel. Por favor, verifique o Passo 2 abaixo.');
+        setIsLoading(false);
+        return;
       }
 
       const ai = new GoogleGenAI({ apiKey });
@@ -501,9 +505,9 @@ export default function App() {
       setTimeout(() => {
         resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error generating prompt:", error);
-      setGeneratedPrompt("Error generating prompt. Please try again.");
+      setGeneratedPrompt(`Erro ao gerar prompt: ${error.message || 'Erro desconhecido'}. Verifique sua chave API e conexão.`);
     } finally {
       setIsLoading(false);
     }
